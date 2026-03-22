@@ -78,8 +78,7 @@ theorem nonce_secret : ¬ Derivable {msg1, msg2} nA := by
 
 /-- The parameterized form from the problem statement. -/
 theorem nonce_secret' (initial : Finset Term)
-    (h_init : initial = {enc (pair nA (atom "Alice")) kAB, enc nA kAB})
-    (h_key : kAB ∉ initial) :
+    (h_init : initial = {enc (pair nA (atom "Alice")) kAB, enc nA kAB}) :
     ¬ Derivable initial nA := by
   subst h_init
   exact nonce_secret

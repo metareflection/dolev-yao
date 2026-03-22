@@ -286,17 +286,14 @@ The entire secrecy proof is 7 lines of tactic code.
 
 ```lean
 theorem nonce_secret' (initial : Finset Term)
-    (h_init : initial = {enc (pair nA (atom "Alice")) kAB, enc nA kAB})
-    (h_key : kAB ∉ initial) :
+    (h_init : initial = {enc (pair nA (atom "Alice")) kAB, enc nA kAB}) :
     ¬ Derivable initial nA := by
   subst h_init
   exact nonce_secret
 ```
 
 This matches the problem statement's signature. After substituting
-`h_init`, the goal is exactly `nonce_secret`. The hypothesis `h_key` is
-unused — it follows from `h_init` and the fact that `kAB` is distinct from
-both messages — but we include it to match the specification.
+`h_init`, the goal is exactly `nonce_secret`.
 
 ## Design notes
 
