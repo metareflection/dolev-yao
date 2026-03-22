@@ -1,0 +1,10 @@
+name = "DolevYao"
+version = "0.1.0"
+defaultTargets = ["DolevYao"]
+
+[[require]]
+name = "mathlib"
+scope = "leanprover-community"
+
+[[lean_lib]]
+name = "DolevYao"
